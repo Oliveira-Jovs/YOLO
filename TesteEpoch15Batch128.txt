@@ -1,0 +1,592 @@
+Downloading https://github.com/ultralytics/assets/releases/download/v8.2.0/yolov8n-cls.pt to 'yolov8n-cls.pt'...
+100%|██████████| 5.30M/5.30M [00:00<00:00, 56.1MB/s]
+Ultralytics YOLOv8.2.18 🚀 Python-3.10.12 torch-2.2.1+cu121 CUDA:0 (Tesla T4, 15102MiB)
+engine/trainer: task=classify, mode=train, model=yolov8n-cls.pt, data=/content/drive/MyDrive/Pibic Oliveira/dataset, epochs=15, time=None, patience=100, batch=128, imgsz=224, save=True, save_period=-1, cache=False, device=None, workers=8, project=None, name=train, exist_ok=False, pretrained=True, optimizer=auto, verbose=True, seed=0, deterministic=True, single_cls=False, rect=False, cos_lr=False, close_mosaic=10, resume=False, amp=True, fraction=1.0, profile=False, freeze=None, multi_scale=False, overlap_mask=True, mask_ratio=4, dropout=0.0, val=True, split=val, save_json=False, save_hybrid=False, conf=None, iou=0.7, max_det=300, half=False, dnn=False, plots=True, source=None, vid_stride=1, stream_buffer=False, visualize=False, augment=False, agnostic_nms=False, classes=None, retina_masks=False, embed=None, show=False, save_frames=False, save_txt=False, save_conf=False, save_crop=False, show_labels=True, show_conf=True, show_boxes=True, line_width=None, format=torchscript, keras=False, optimize=False, int8=False, dynamic=False, simplify=False, opset=None, workspace=4, nms=False, lr0=0.01, lrf=0.01, momentum=0.937, weight_decay=0.0005, warmup_epochs=3.0, warmup_momentum=0.8, warmup_bias_lr=0.1, box=7.5, cls=0.5, dfl=1.5, pose=12.0, kobj=1.0, label_smoothing=0.0, nbs=64, hsv_h=0.015, hsv_s=0.7, hsv_v=0.4, degrees=0.0, translate=0.1, scale=0.5, shear=0.0, perspective=0.0, flipud=0.0, fliplr=0.5, bgr=0.0, mosaic=1.0, mixup=0.0, copy_paste=0.0, auto_augment=randaugment, erasing=0.4, crop_fraction=1.0, cfg=None, tracker=botsort.yaml, save_dir=runs/classify/train
+train: /content/drive/MyDrive/Pibic Oliveira/dataset/train... found 4113 images in 3 classes ✅ 
+val: /content/drive/MyDrive/Pibic Oliveira/dataset/val... found 592 images in 3 classes ✅ 
+test: /content/drive/MyDrive/Pibic Oliveira/dataset/test... found 1172 images in 3 classes ✅ 
+Overriding model.yaml nc=1000 with nc=3
+
+                   from  n    params  module                                       arguments                     
+  0                  -1  1       464  ultralytics.nn.modules.conv.Conv             [3, 16, 3, 2]                 
+  1                  -1  1      4672  ultralytics.nn.modules.conv.Conv             [16, 32, 3, 2]                
+  2                  -1  1      7360  ultralytics.nn.modules.block.C2f             [32, 32, 1, True]             
+  3                  -1  1     18560  ultralytics.nn.modules.conv.Conv             [32, 64, 3, 2]                
+  4                  -1  2     49664  ultralytics.nn.modules.block.C2f             [64, 64, 2, True]             
+  5                  -1  1     73984  ultralytics.nn.modules.conv.Conv             [64, 128, 3, 2]               
+  6                  -1  2    197632  ultralytics.nn.modules.block.C2f             [128, 128, 2, True]           
+  7                  -1  1    295424  ultralytics.nn.modules.conv.Conv             [128, 256, 3, 2]              
+  8                  -1  1    460288  ultralytics.nn.modules.block.C2f             [256, 256, 1, True]           
+  9                  -1  1    334083  ultralytics.nn.modules.head.Classify         [256, 3]                      
+YOLOv8n-cls summary: 99 layers, 1442131 parameters, 1442131 gradients, 3.4 GFLOPs
+Transferred 156/158 items from pretrained weights
+TensorBoard: Start with 'tensorboard --logdir runs/classify/train', view at http://localhost:6006/
+AMP: running Automatic Mixed Precision (AMP) checks with YOLOv8n...
+Downloading https://github.com/ultralytics/assets/releases/download/v8.2.0/yolov8n.pt to 'yolov8n.pt'...
+100%|██████████| 6.23M/6.23M [00:00<00:00, 192MB/s]
+AMP: checks passed ✅
+train: Scanning /content/drive/MyDrive/Pibic Oliveira/dataset/train... 4113 images, 0 corrupt: 100%|██████████| 4113/4113 [00:00<?, ?it/s]
+/usr/lib/python3.10/multiprocessing/popen_fork.py:66: RuntimeWarning: os.fork() was called. os.fork() is incompatible with multithreaded code, and JAX is multithreaded, so this will likely lead to a deadlock.
+  self.pid = os.fork()
+val: Scanning /content/drive/MyDrive/Pibic Oliveira/dataset/val... 592 images, 0 corrupt: 100%|██████████| 592/592 [00:00<?, ?it/s]
+optimizer: 'optimizer=auto' found, ignoring 'lr0=0.01' and 'momentum=0.937' and determining best 'optimizer', 'lr0' and 'momentum' automatically... 
+optimizer: AdamW(lr=0.000714, momentum=0.9) with parameter groups 26 weight(decay=0.0), 27 weight(decay=0.001), 27 bias(decay=0.0)
+TensorBoard: model graph visualization added ✅
+Image sizes 224 train, 224 val
+Using 8 dataloader workers
+Logging results to runs/classify/train
+Starting training for 15 epochs...
+
+      Epoch    GPU_mem       loss  Instances       Size
+       1/15      1.38G      1.144        128        224:   6%|▌         | 2/33 [01:23<17:46, 34.42s/it]Downloading https://ultralytics.com/assets/Arial.ttf to '/root/.config/Ultralytics/Arial.ttf'...
+       1/15      1.81G      1.154        128        224:  21%|██        | 7/33 [01:23<01:58,  4.56s/it]
+100%|██████████| 755k/755k [00:00<00:00, 37.8MB/s]
+       1/15      1.98G     0.9804         17        224: 100%|██████████| 33/33 [05:20<00:00,  9.72s/it]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:00<00:00,  7.40it/s]
+                   all      0.684          1
+
+      Epoch    GPU_mem       loss  Instances       Size
+       2/15      1.55G     0.6247         17        224: 100%|██████████| 33/33 [00:29<00:00,  1.11it/s]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:00<00:00, 26.02it/s]                   all      0.745          1
+
+
+      Epoch    GPU_mem       loss  Instances       Size
+       3/15      1.55G      0.521         17        224: 100%|██████████| 33/33 [00:31<00:00,  1.06it/s]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:00<00:00, 25.31it/s]                   all      0.736          1
+
+
+      Epoch    GPU_mem       loss  Instances       Size
+       4/15      1.55G     0.4997         17        224: 100%|██████████| 33/33 [00:31<00:00,  1.04it/s]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:00<00:00, 22.11it/s]                   all      0.699          1
+
+
+      Epoch    GPU_mem       loss  Instances       Size
+       5/15      1.55G     0.4709         17        224: 100%|██████████| 33/33 [00:31<00:00,  1.06it/s]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:00<00:00, 22.09it/s]                   all       0.72          1
+
+/usr/lib/python3.10/multiprocessing/popen_fork.py:66: RuntimeWarning: os.fork() was called. os.fork() is incompatible with multithreaded code, and JAX is multithreaded, so this will likely lead to a deadlock.
+  self.pid = os.fork()
+
+      Epoch    GPU_mem       loss  Instances       Size
+       6/15      1.77G     0.4356         17        224: 100%|██████████| 33/33 [00:25<00:00,  1.30it/s]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:00<00:00, 25.92it/s]                   all      0.733          1
+
+
+      Epoch    GPU_mem       loss  Instances       Size
+       7/15      1.55G     0.3975         17        224: 100%|██████████| 33/33 [00:30<00:00,  1.08it/s]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:00<00:00, 25.37it/s]
+                   all       0.74          1
+
+      Epoch    GPU_mem       loss  Instances       Size
+       8/15      1.55G     0.3975         17        224: 100%|██████████| 33/33 [00:32<00:00,  1.03it/s]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:00<00:00, 23.28it/s]                   all      0.748          1
+
+
+      Epoch    GPU_mem       loss  Instances       Size
+       9/15      1.55G     0.3976         17        224: 100%|██████████| 33/33 [00:31<00:00,  1.04it/s]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:00<00:00, 24.66it/s]                   all      0.753          1
+
+
+      Epoch    GPU_mem       loss  Instances       Size
+      10/15      1.55G     0.3616         17        224: 100%|██████████| 33/33 [00:31<00:00,  1.06it/s]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:00<00:00, 25.73it/s]                   all      0.764          1
+
+
+      Epoch    GPU_mem       loss  Instances       Size
+      11/15      1.55G     0.3687         17        224: 100%|██████████| 33/33 [00:31<00:00,  1.04it/s]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:00<00:00, 25.41it/s]                   all      0.757          1
+
+
+      Epoch    GPU_mem       loss  Instances       Size
+      12/15      1.55G     0.3637         17        224: 100%|██████████| 33/33 [00:31<00:00,  1.03it/s]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:00<00:00, 25.80it/s]                   all      0.747          1
+
+
+      Epoch    GPU_mem       loss  Instances       Size
+      13/15      1.55G       0.35         17        224: 100%|██████████| 33/33 [00:31<00:00,  1.06it/s]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:00<00:00, 26.24it/s]                   all      0.736          1
+
+
+      Epoch    GPU_mem       loss  Instances       Size
+      14/15      1.55G     0.3355         17        224: 100%|██████████| 33/33 [00:32<00:00,  1.02it/s]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:00<00:00, 24.02it/s]                   all       0.74          1
+
+
+      Epoch    GPU_mem       loss  Instances       Size
+      15/15      1.55G     0.3313         17        224: 100%|██████████| 33/33 [00:30<00:00,  1.07it/s]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:00<00:00, 25.67it/s]                   all      0.748          1
+
+
+15 epochs completed in 0.216 hours.
+Optimizer stripped from runs/classify/train/weights/last.pt, 3.0MB
+Optimizer stripped from runs/classify/train/weights/best.pt, 3.0MB
+
+Validating runs/classify/train/weights/best.pt...
+Ultralytics YOLOv8.2.18 🚀 Python-3.10.12 torch-2.2.1+cu121 CUDA:0 (Tesla T4, 15102MiB)
+YOLOv8n-cls summary (fused): 73 layers, 1438723 parameters, 0 gradients, 3.3 GFLOPs
+train: /content/drive/MyDrive/Pibic Oliveira/dataset/train... found 4113 images in 3 classes ✅ 
+val: /content/drive/MyDrive/Pibic Oliveira/dataset/val... found 592 images in 3 classes ✅ 
+test: /content/drive/MyDrive/Pibic Oliveira/dataset/test... found 1172 images in 3 classes ✅ 
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:00<00:00, 16.55it/s]
+                   all      0.762          1
+Speed: 0.1ms preprocess, 0.1ms inference, 0.0ms loss, 0.0ms postprocess per image
+Results saved to runs/classify/train
+Results saved to runs/classify/train
+ultralytics.utils.metrics.ClassifyMetrics object with attributes:
+
+confusion_matrix: <ultralytics.utils.metrics.ConfusionMatrix object at 0x78b1ed5bbd00>
+curves: []
+curves_results: []
+fitness: 0.8809121549129486
+keys: ['metrics/accuracy_top1', 'metrics/accuracy_top5']
+results_dict: {'metrics/accuracy_top1': 0.7618243098258972, 'metrics/accuracy_top5': 1.0, 'fitness': 0.8809121549129486}
+save_dir: PosixPath('runs/classify/train')
+speed: {'preprocess': 0.0591656646213016, 'inference': 0.10972248541342246, 'loss': 9.021243533572635e-05, 'postprocess': 7.047846510603622e-05}
+task: 'classify'
+top1: 0.7618243098258972
+top5: 1.0
+
+13 min
+0.216
+--------------------------------------------
+
+Downloading https://github.com/ultralytics/assets/releases/download/v8.2.0/yolov8m-cls.pt to 'yolov8m-cls.pt'...
+100%|██████████| 32.7M/32.7M [00:00<00:00, 358MB/s]
+Ultralytics YOLOv8.2.18 🚀 Python-3.10.12 torch-2.2.1+cu121 CUDA:0 (Tesla T4, 15102MiB)
+engine/trainer: task=classify, mode=train, model=yolov8m-cls.pt, data=/content/drive/MyDrive/Pibic Oliveira/dataset, epochs=15, time=None, patience=100, batch=128, imgsz=224, save=True, save_period=-1, cache=False, device=None, workers=8, project=None, name=train2, exist_ok=False, pretrained=True, optimizer=auto, verbose=True, seed=0, deterministic=True, single_cls=False, rect=False, cos_lr=False, close_mosaic=10, resume=False, amp=True, fraction=1.0, profile=False, freeze=None, multi_scale=False, overlap_mask=True, mask_ratio=4, dropout=0.0, val=True, split=val, save_json=False, save_hybrid=False, conf=None, iou=0.7, max_det=300, half=False, dnn=False, plots=True, source=None, vid_stride=1, stream_buffer=False, visualize=False, augment=False, agnostic_nms=False, classes=None, retina_masks=False, embed=None, show=False, save_frames=False, save_txt=False, save_conf=False, save_crop=False, show_labels=True, show_conf=True, show_boxes=True, line_width=None, format=torchscript, keras=False, optimize=False, int8=False, dynamic=False, simplify=False, opset=None, workspace=4, nms=False, lr0=0.01, lrf=0.01, momentum=0.937, weight_decay=0.0005, warmup_epochs=3.0, warmup_momentum=0.8, warmup_bias_lr=0.1, box=7.5, cls=0.5, dfl=1.5, pose=12.0, kobj=1.0, label_smoothing=0.0, nbs=64, hsv_h=0.015, hsv_s=0.7, hsv_v=0.4, degrees=0.0, translate=0.1, scale=0.5, shear=0.0, perspective=0.0, flipud=0.0, fliplr=0.5, bgr=0.0, mosaic=1.0, mixup=0.0, copy_paste=0.0, auto_augment=randaugment, erasing=0.4, crop_fraction=1.0, cfg=None, tracker=botsort.yaml, save_dir=runs/classify/train2
+train: /content/drive/MyDrive/Pibic Oliveira/dataset/train... found 4113 images in 3 classes ✅ 
+val: /content/drive/MyDrive/Pibic Oliveira/dataset/val... found 592 images in 3 classes ✅ 
+test: /content/drive/MyDrive/Pibic Oliveira/dataset/test... found 1172 images in 3 classes ✅ 
+Overriding model.yaml nc=1000 with nc=3
+
+                   from  n    params  module                                       arguments                     
+  0                  -1  1      1392  ultralytics.nn.modules.conv.Conv             [3, 48, 3, 2]                 
+  1                  -1  1     41664  ultralytics.nn.modules.conv.Conv             [48, 96, 3, 2]                
+  2                  -1  2    111360  ultralytics.nn.modules.block.C2f             [96, 96, 2, True]             
+  3                  -1  1    166272  ultralytics.nn.modules.conv.Conv             [96, 192, 3, 2]               
+  4                  -1  4    813312  ultralytics.nn.modules.block.C2f             [192, 192, 4, True]           
+  5                  -1  1    664320  ultralytics.nn.modules.conv.Conv             [192, 384, 3, 2]              
+  6                  -1  4   3248640  ultralytics.nn.modules.block.C2f             [384, 384, 4, True]           
+  7                  -1  1   2655744  ultralytics.nn.modules.conv.Conv             [384, 768, 3, 2]              
+  8                  -1  2   7084032  ultralytics.nn.modules.block.C2f             [768, 768, 2, True]           
+  9                  -1  1    989443  ultralytics.nn.modules.head.Classify         [768, 3]                      
+YOLOv8m-cls summary: 141 layers, 15776179 parameters, 15776179 gradients, 41.9 GFLOPs
+Transferred 228/230 items from pretrained weights
+TensorBoard: Start with 'tensorboard --logdir runs/classify/train2', view at http://localhost:6006/
+AMP: running Automatic Mixed Precision (AMP) checks with YOLOv8n...
+AMP: checks passed ✅
+train: Scanning /content/drive/MyDrive/Pibic Oliveira/dataset/train... 4113 images, 0 corrupt: 100%|██████████| 4113/4113 [00:00<?, ?it/s]
+/usr/lib/python3.10/multiprocessing/popen_fork.py:66: RuntimeWarning: os.fork() was called. os.fork() is incompatible with multithreaded code, and JAX is multithreaded, so this will likely lead to a deadlock.
+  self.pid = os.fork()
+val: Scanning /content/drive/MyDrive/Pibic Oliveira/dataset/val... 592 images, 0 corrupt: 100%|██████████| 592/592 [00:00<?, ?it/s]
+optimizer: 'optimizer=auto' found, ignoring 'lr0=0.01' and 'momentum=0.937' and determining best 'optimizer', 'lr0' and 'momentum' automatically... 
+optimizer: AdamW(lr=0.000714, momentum=0.9) with parameter groups 38 weight(decay=0.0), 39 weight(decay=0.001), 39 bias(decay=0.0)
+TensorBoard: model graph visualization added ✅
+Image sizes 224 train, 224 val
+Using 8 dataloader workers
+Logging results to runs/classify/train2
+Starting training for 15 epochs...
+
+      Epoch    GPU_mem       loss  Instances       Size
+       1/15      4.55G     0.9301         17        224: 100%|██████████| 33/33 [00:54<00:00,  1.66s/it]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:00<00:00,  5.78it/s]                   all      0.748          1
+
+
+      Epoch    GPU_mem       loss  Instances       Size
+       2/15      4.67G     0.5428         17        224: 100%|██████████| 33/33 [00:33<00:00,  1.03s/it]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:00<00:00,  7.30it/s]                   all      0.764          1
+
+
+      Epoch    GPU_mem       loss  Instances       Size
+       3/15      4.67G     0.4584         17        224: 100%|██████████| 33/33 [00:31<00:00,  1.05it/s]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:00<00:00,  7.11it/s]                   all      0.775          1
+
+
+      Epoch    GPU_mem       loss  Instances       Size
+       4/15      4.68G     0.4346         17        224: 100%|██████████| 33/33 [00:32<00:00,  1.01it/s]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:00<00:00,  7.13it/s]                   all      0.742          1
+
+
+      Epoch    GPU_mem       loss  Instances       Size
+       5/15       4.7G     0.4001         17        224: 100%|██████████| 33/33 [00:31<00:00,  1.05it/s]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:00<00:00,  7.26it/s]                   all      0.769          1
+
+/usr/lib/python3.10/multiprocessing/popen_fork.py:66: RuntimeWarning: os.fork() was called. os.fork() is incompatible with multithreaded code, and JAX is multithreaded, so this will likely lead to a deadlock.
+  self.pid = os.fork()
+
+      Epoch    GPU_mem       loss  Instances       Size
+       6/15      4.69G     0.3533         17        224: 100%|██████████| 33/33 [00:29<00:00,  1.14it/s]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:00<00:00,  7.14it/s]                   all      0.764          1
+
+
+      Epoch    GPU_mem       loss  Instances       Size
+       7/15      4.93G     0.3303         17        224: 100%|██████████| 33/33 [00:31<00:00,  1.05it/s]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:00<00:00,  7.13it/s]                   all      0.738          1
+
+
+      Epoch    GPU_mem       loss  Instances       Size
+       8/15      4.69G     0.3033         17        224: 100%|██████████| 33/33 [00:31<00:00,  1.03it/s]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:00<00:00,  7.10it/s]                   all      0.716          1
+
+
+      Epoch    GPU_mem       loss  Instances       Size
+       9/15      4.93G     0.2823         17        224: 100%|██████████| 33/33 [00:32<00:00,  1.02it/s]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:00<00:00,  7.25it/s]                   all      0.733          1
+
+
+      Epoch    GPU_mem       loss  Instances       Size
+      10/15      4.69G     0.2557         17        224: 100%|██████████| 33/33 [00:33<00:00,  1.02s/it]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:00<00:00,  7.01it/s]                   all      0.752          1
+
+
+      Epoch    GPU_mem       loss  Instances       Size
+      11/15      4.92G     0.2466         17        224: 100%|██████████| 33/33 [00:31<00:00,  1.04it/s]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:00<00:00,  7.16it/s]                   all      0.742          1
+
+
+      Epoch    GPU_mem       loss  Instances       Size
+      12/15      4.69G     0.2309         17        224: 100%|██████████| 33/33 [00:33<00:00,  1.02s/it]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:00<00:00,  7.14it/s]                   all      0.772          1
+
+
+      Epoch    GPU_mem       loss  Instances       Size
+      13/15      4.93G     0.2135         17        224: 100%|██████████| 33/33 [00:32<00:00,  1.01it/s]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:00<00:00,  7.16it/s]                   all      0.774          1
+
+
+      Epoch    GPU_mem       loss  Instances       Size
+      14/15      4.69G     0.1814         17        224: 100%|██████████| 33/33 [00:32<00:00,  1.01it/s]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:00<00:00,  7.11it/s]                   all      0.774          1
+
+
+      Epoch    GPU_mem       loss  Instances       Size
+      15/15      4.93G     0.1858         17        224: 100%|██████████| 33/33 [00:32<00:00,  1.03it/s]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:00<00:00,  7.16it/s]                   all      0.767          1
+
+
+15 epochs completed in 0.151 hours.
+Optimizer stripped from runs/classify/train2/weights/last.pt, 31.7MB
+Optimizer stripped from runs/classify/train2/weights/best.pt, 31.7MB
+
+Validating runs/classify/train2/weights/best.pt...
+Ultralytics YOLOv8.2.18 🚀 Python-3.10.12 torch-2.2.1+cu121 CUDA:0 (Tesla T4, 15102MiB)
+YOLOv8m-cls summary (fused): 103 layers, 15766499 parameters, 0 gradients, 41.6 GFLOPs
+train: /content/drive/MyDrive/Pibic Oliveira/dataset/train... found 4113 images in 3 classes ✅ 
+val: /content/drive/MyDrive/Pibic Oliveira/dataset/val... found 592 images in 3 classes ✅ 
+test: /content/drive/MyDrive/Pibic Oliveira/dataset/test... found 1172 images in 3 classes ✅ 
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:00<00:00,  6.34it/s]
+                   all      0.775          1
+Speed: 0.1ms preprocess, 0.6ms inference, 0.0ms loss, 0.0ms postprocess per image
+Results saved to runs/classify/train2
+Results saved to runs/classify/train2
+ultralytics.utils.metrics.ClassifyMetrics object with attributes:
+
+confusion_matrix: <ultralytics.utils.metrics.ConfusionMatrix object at 0x78b0a82b8610>
+curves: []
+curves_results: []
+fitness: 0.8876689076423645
+keys: ['metrics/accuracy_top1', 'metrics/accuracy_top5']
+results_dict: {'metrics/accuracy_top1': 0.775337815284729, 'metrics/accuracy_top5': 1.0, 'fitness': 0.8876689076423645}
+save_dir: PosixPath('runs/classify/train2')
+speed: {'preprocess': 0.07556419114808778, 'inference': 0.5847288144601358, 'loss': 7.047846510603622e-05, 'postprocess': 7.49085400555585e-05}
+task: 'classify'
+top1: 0.775337815284729
+top5: 1.0
+
+9min
+0.151
+
+------------------------------------------------------
+
+Downloading https://github.com/ultralytics/assets/releases/download/v8.2.0/yolov8l-cls.pt to 'yolov8l-cls.pt'...
+100%|██████████| 71.7M/71.7M [00:00<00:00, 348MB/s]
+Ultralytics YOLOv8.2.18 🚀 Python-3.10.12 torch-2.2.1+cu121 CUDA:0 (Tesla T4, 15102MiB)
+engine/trainer: task=classify, mode=train, model=yolov8l-cls.pt, data=/content/drive/MyDrive/Pibic Oliveira/dataset, epochs=15, time=None, patience=100, batch=128, imgsz=224, save=True, save_period=-1, cache=False, device=None, workers=8, project=None, name=train3, exist_ok=False, pretrained=True, optimizer=auto, verbose=True, seed=0, deterministic=True, single_cls=False, rect=False, cos_lr=False, close_mosaic=10, resume=False, amp=True, fraction=1.0, profile=False, freeze=None, multi_scale=False, overlap_mask=True, mask_ratio=4, dropout=0.0, val=True, split=val, save_json=False, save_hybrid=False, conf=None, iou=0.7, max_det=300, half=False, dnn=False, plots=True, source=None, vid_stride=1, stream_buffer=False, visualize=False, augment=False, agnostic_nms=False, classes=None, retina_masks=False, embed=None, show=False, save_frames=False, save_txt=False, save_conf=False, save_crop=False, show_labels=True, show_conf=True, show_boxes=True, line_width=None, format=torchscript, keras=False, optimize=False, int8=False, dynamic=False, simplify=False, opset=None, workspace=4, nms=False, lr0=0.01, lrf=0.01, momentum=0.937, weight_decay=0.0005, warmup_epochs=3.0, warmup_momentum=0.8, warmup_bias_lr=0.1, box=7.5, cls=0.5, dfl=1.5, pose=12.0, kobj=1.0, label_smoothing=0.0, nbs=64, hsv_h=0.015, hsv_s=0.7, hsv_v=0.4, degrees=0.0, translate=0.1, scale=0.5, shear=0.0, perspective=0.0, flipud=0.0, fliplr=0.5, bgr=0.0, mosaic=1.0, mixup=0.0, copy_paste=0.0, auto_augment=randaugment, erasing=0.4, crop_fraction=1.0, cfg=None, tracker=botsort.yaml, save_dir=runs/classify/train3
+train: /content/drive/MyDrive/Pibic Oliveira/dataset/train... found 4113 images in 3 classes ✅ 
+val: /content/drive/MyDrive/Pibic Oliveira/dataset/val... found 592 images in 3 classes ✅ 
+test: /content/drive/MyDrive/Pibic Oliveira/dataset/test... found 1172 images in 3 classes ✅ 
+Overriding model.yaml nc=1000 with nc=3
+
+                   from  n    params  module                                       arguments                     
+  0                  -1  1      1856  ultralytics.nn.modules.conv.Conv             [3, 64, 3, 2]                 
+  1                  -1  1     73984  ultralytics.nn.modules.conv.Conv             [64, 128, 3, 2]               
+  2                  -1  3    279808  ultralytics.nn.modules.block.C2f             [128, 128, 3, True]           
+  3                  -1  1    295424  ultralytics.nn.modules.conv.Conv             [128, 256, 3, 2]              
+  4                  -1  6   2101248  ultralytics.nn.modules.block.C2f             [256, 256, 6, True]           
+  5                  -1  1   1180672  ultralytics.nn.modules.conv.Conv             [256, 512, 3, 2]              
+  6                  -1  6   8396800  ultralytics.nn.modules.block.C2f             [512, 512, 6, True]           
+  7                  -1  1   4720640  ultralytics.nn.modules.conv.Conv             [512, 1024, 3, 2]             
+  8                  -1  3  17836032  ultralytics.nn.modules.block.C2f             [1024, 1024, 3, True]         
+  9                  -1  1   1317123  ultralytics.nn.modules.head.Classify         [1024, 3]                     
+YOLOv8l-cls summary: 183 layers, 36203587 parameters, 36203587 gradients, 99.1 GFLOPs
+Transferred 300/302 items from pretrained weights
+TensorBoard: Start with 'tensorboard --logdir runs/classify/train3', view at http://localhost:6006/
+AMP: running Automatic Mixed Precision (AMP) checks with YOLOv8n...
+AMP: checks passed ✅
+train: Scanning /content/drive/MyDrive/Pibic Oliveira/dataset/train... 4113 images, 0 corrupt: 100%|██████████| 4113/4113 [00:00<?, ?it/s]
+/usr/lib/python3.10/multiprocessing/popen_fork.py:66: RuntimeWarning: os.fork() was called. os.fork() is incompatible with multithreaded code, and JAX is multithreaded, so this will likely lead to a deadlock.
+  self.pid = os.fork()
+val: Scanning /content/drive/MyDrive/Pibic Oliveira/dataset/val... 592 images, 0 corrupt: 100%|██████████| 592/592 [00:00<?, ?it/s]
+optimizer: 'optimizer=auto' found, ignoring 'lr0=0.01' and 'momentum=0.937' and determining best 'optimizer', 'lr0' and 'momentum' automatically... 
+optimizer: AdamW(lr=0.000714, momentum=0.9) with parameter groups 50 weight(decay=0.0), 51 weight(decay=0.001), 51 bias(decay=0.0)
+TensorBoard: model graph visualization added ✅
+Image sizes 224 train, 224 val
+Using 8 dataloader workers
+Logging results to runs/classify/train3
+Starting training for 15 epochs...
+
+      Epoch    GPU_mem       loss  Instances       Size
+       1/15       7.2G     0.8548         17        224: 100%|██████████| 33/33 [01:00<00:00,  1.85s/it]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:00<00:00,  4.05it/s]                   all      0.743          1
+
+
+      Epoch    GPU_mem       loss  Instances       Size
+       2/15      7.48G     0.5083         17        224: 100%|██████████| 33/33 [00:33<00:00,  1.02s/it]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:00<00:00,  4.29it/s]                   all      0.735          1
+
+
+      Epoch    GPU_mem       loss  Instances       Size
+       3/15      7.54G     0.4254         17        224: 100%|██████████| 33/33 [00:31<00:00,  1.05it/s]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:00<00:00,  4.26it/s]                   all      0.764          1
+
+
+      Epoch    GPU_mem       loss  Instances       Size
+       4/15      7.51G     0.4216         17        224: 100%|██████████| 33/33 [00:34<00:00,  1.05s/it]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:00<00:00,  4.20it/s]                   all      0.652          1
+
+
+      Epoch    GPU_mem       loss  Instances       Size
+       5/15      7.53G     0.3911         17        224: 100%|██████████| 33/33 [00:32<00:00,  1.00it/s]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:00<00:00,  4.14it/s]                   all      0.742          1
+
+/usr/lib/python3.10/multiprocessing/popen_fork.py:66: RuntimeWarning: os.fork() was called. os.fork() is incompatible with multithreaded code, and JAX is multithreaded, so this will likely lead to a deadlock.
+  self.pid = os.fork()
+
+      Epoch    GPU_mem       loss  Instances       Size
+       6/15      7.52G     0.3496         17        224: 100%|██████████| 33/33 [00:30<00:00,  1.10it/s]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:00<00:00,  4.20it/s]                   all      0.769          1
+
+
+      Epoch    GPU_mem       loss  Instances       Size
+       7/15      7.52G     0.3424         17        224: 100%|██████████| 33/33 [00:34<00:00,  1.04s/it]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:00<00:00,  4.20it/s]                   all      0.742          1
+
+
+      Epoch    GPU_mem       loss  Instances       Size
+       8/15      7.52G     0.2932         17        224: 100%|██████████| 33/33 [00:32<00:00,  1.02it/s]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:00<00:00,  4.17it/s]                   all      0.733          1
+
+
+      Epoch    GPU_mem       loss  Instances       Size
+       9/15      7.52G     0.2732         17        224: 100%|██████████| 33/33 [00:33<00:00,  1.01s/it]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:00<00:00,  4.13it/s]                   all       0.75          1
+
+
+      Epoch    GPU_mem       loss  Instances       Size
+      10/15      7.58G     0.2432         17        224: 100%|██████████| 33/33 [00:33<00:00,  1.00s/it]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:00<00:00,  4.08it/s]                   all       0.76          1
+
+
+      Epoch    GPU_mem       loss  Instances       Size
+      11/15      7.49G     0.2125         17        224: 100%|██████████| 33/33 [00:35<00:00,  1.07s/it]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:00<00:00,  4.12it/s]                   all      0.743          1
+
+
+      Epoch    GPU_mem       loss  Instances       Size
+      12/15      7.52G     0.2028         17        224: 100%|██████████| 33/33 [00:33<00:00,  1.00s/it]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:00<00:00,  4.15it/s]                   all      0.745          1
+
+
+      Epoch    GPU_mem       loss  Instances       Size
+      13/15      7.52G     0.1857         17        224: 100%|██████████| 33/33 [00:34<00:00,  1.04s/it]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:00<00:00,  4.11it/s]                   all      0.777          1
+
+
+      Epoch    GPU_mem       loss  Instances       Size
+      14/15      7.53G     0.1519         17        224: 100%|██████████| 33/33 [00:33<00:00,  1.01s/it]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:00<00:00,  4.04it/s]                   all      0.777          1
+
+
+      Epoch    GPU_mem       loss  Instances       Size
+      15/15      7.52G     0.1541         17        224: 100%|██████████| 33/33 [00:32<00:00,  1.00it/s]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:00<00:00,  4.12it/s]                   all      0.772          1
+
+
+15 epochs completed in 0.161 hours.
+Optimizer stripped from runs/classify/train3/weights/last.pt, 72.6MB
+Optimizer stripped from runs/classify/train3/weights/best.pt, 72.6MB
+
+Validating runs/classify/train3/weights/best.pt...
+Ultralytics YOLOv8.2.18 🚀 Python-3.10.12 torch-2.2.1+cu121 CUDA:0 (Tesla T4, 15102MiB)
+YOLOv8l-cls summary (fused): 133 layers, 36188419 parameters, 0 gradients, 98.7 GFLOPs
+train: /content/drive/MyDrive/Pibic Oliveira/dataset/train... found 4113 images in 3 classes ✅ 
+val: /content/drive/MyDrive/Pibic Oliveira/dataset/val... found 592 images in 3 classes ✅ 
+test: /content/drive/MyDrive/Pibic Oliveira/dataset/test... found 1172 images in 3 classes ✅ 
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:00<00:00,  3.69it/s]
+                   all      0.777          1
+Speed: 0.1ms preprocess, 1.2ms inference, 0.0ms loss, 0.0ms postprocess per image
+Results saved to runs/classify/train3
+Results saved to runs/classify/train3
+ultralytics.utils.metrics.ClassifyMetrics object with attributes:
+
+confusion_matrix: <ultralytics.utils.metrics.ConfusionMatrix object at 0x78b0a8bf4a90>
+curves: []
+curves_results: []
+fitness: 0.8885135054588318
+keys: ['metrics/accuracy_top1', 'metrics/accuracy_top5']
+results_dict: {'metrics/accuracy_top1': 0.7770270109176636, 'metrics/accuracy_top5': 1.0, 'fitness': 0.8885135054588318}
+save_dir: PosixPath('runs/classify/train3')
+speed: {'preprocess': 0.06294814316002098, 'inference': 1.1500486650982418, 'loss': 9.86698511484507e-05, 'postprocess': 5.316089939426731e-05}
+task: 'classify'
+top1: 0.7770270109176636
+top5: 1.0
+
+9min
+0.161
+----------------------------------------------------------------------------------------------------------------------------
+
+Downloading https://github.com/ultralytics/assets/releases/download/v8.2.0/yolov8x-cls.pt to 'yolov8x-cls.pt'...
+100%|██████████| 110M/110M [00:02<00:00, 50.1MB/s]
+Ultralytics YOLOv8.2.18 🚀 Python-3.10.12 torch-2.2.1+cu121 CUDA:0 (Tesla T4, 15102MiB)
+engine/trainer: task=classify, mode=train, model=yolov8x-cls.pt, data=/content/drive/MyDrive/Pibic Oliveira/dataset, epochs=15, time=None, patience=100, batch=128, imgsz=224, save=True, save_period=-1, cache=False, device=None, workers=8, project=None, name=train4, exist_ok=False, pretrained=True, optimizer=auto, verbose=True, seed=0, deterministic=True, single_cls=False, rect=False, cos_lr=False, close_mosaic=10, resume=False, amp=True, fraction=1.0, profile=False, freeze=None, multi_scale=False, overlap_mask=True, mask_ratio=4, dropout=0.0, val=True, split=val, save_json=False, save_hybrid=False, conf=None, iou=0.7, max_det=300, half=False, dnn=False, plots=True, source=None, vid_stride=1, stream_buffer=False, visualize=False, augment=False, agnostic_nms=False, classes=None, retina_masks=False, embed=None, show=False, save_frames=False, save_txt=False, save_conf=False, save_crop=False, show_labels=True, show_conf=True, show_boxes=True, line_width=None, format=torchscript, keras=False, optimize=False, int8=False, dynamic=False, simplify=False, opset=None, workspace=4, nms=False, lr0=0.01, lrf=0.01, momentum=0.937, weight_decay=0.0005, warmup_epochs=3.0, warmup_momentum=0.8, warmup_bias_lr=0.1, box=7.5, cls=0.5, dfl=1.5, pose=12.0, kobj=1.0, label_smoothing=0.0, nbs=64, hsv_h=0.015, hsv_s=0.7, hsv_v=0.4, degrees=0.0, translate=0.1, scale=0.5, shear=0.0, perspective=0.0, flipud=0.0, fliplr=0.5, bgr=0.0, mosaic=1.0, mixup=0.0, copy_paste=0.0, auto_augment=randaugment, erasing=0.4, crop_fraction=1.0, cfg=None, tracker=botsort.yaml, save_dir=runs/classify/train4
+train: /content/drive/MyDrive/Pibic Oliveira/dataset/train... found 4113 images in 3 classes ✅ 
+val: /content/drive/MyDrive/Pibic Oliveira/dataset/val... found 592 images in 3 classes ✅ 
+test: /content/drive/MyDrive/Pibic Oliveira/dataset/test... found 1172 images in 3 classes ✅ 
+Overriding model.yaml nc=1000 with nc=3
+
+                   from  n    params  module                                       arguments                     
+  0                  -1  1      2320  ultralytics.nn.modules.conv.Conv             [3, 80, 3, 2]                 
+  1                  -1  1    115520  ultralytics.nn.modules.conv.Conv             [80, 160, 3, 2]               
+  2                  -1  3    436800  ultralytics.nn.modules.block.C2f             [160, 160, 3, True]           
+  3                  -1  1    461440  ultralytics.nn.modules.conv.Conv             [160, 320, 3, 2]              
+  4                  -1  6   3281920  ultralytics.nn.modules.block.C2f             [320, 320, 6, True]           
+  5                  -1  1   1844480  ultralytics.nn.modules.conv.Conv             [320, 640, 3, 2]              
+  6                  -1  6  13117440  ultralytics.nn.modules.block.C2f             [640, 640, 6, True]           
+  7                  -1  1   7375360  ultralytics.nn.modules.conv.Conv             [640, 1280, 3, 2]             
+  8                  -1  3  27865600  ultralytics.nn.modules.block.C2f             [1280, 1280, 3, True]         
+  9                  -1  1   1644803  ultralytics.nn.modules.head.Classify         [1280, 3]                     
+YOLOv8x-cls summary: 183 layers, 56145683 parameters, 56145683 gradients, 154.3 GFLOPs
+Transferred 300/302 items from pretrained weights
+TensorBoard: Start with 'tensorboard --logdir runs/classify/train4', view at http://localhost:6006/
+AMP: running Automatic Mixed Precision (AMP) checks with YOLOv8n...
+AMP: checks passed ✅
+train: Scanning /content/drive/MyDrive/Pibic Oliveira/dataset/train... 4113 images, 0 corrupt: 100%|██████████| 4113/4113 [00:00<?, ?it/s]
+/usr/lib/python3.10/multiprocessing/popen_fork.py:66: RuntimeWarning: os.fork() was called. os.fork() is incompatible with multithreaded code, and JAX is multithreaded, so this will likely lead to a deadlock.
+  self.pid = os.fork()
+val: Scanning /content/drive/MyDrive/Pibic Oliveira/dataset/val... 592 images, 0 corrupt: 100%|██████████| 592/592 [00:00<?, ?it/s]
+optimizer: 'optimizer=auto' found, ignoring 'lr0=0.01' and 'momentum=0.937' and determining best 'optimizer', 'lr0' and 'momentum' automatically... 
+optimizer: AdamW(lr=0.000714, momentum=0.9) with parameter groups 50 weight(decay=0.0), 51 weight(decay=0.001), 51 bias(decay=0.0)
+TensorBoard: model graph visualization added ✅
+Image sizes 224 train, 224 val
+Using 8 dataloader workers
+Logging results to runs/classify/train4
+Starting training for 15 epochs...
+
+      Epoch    GPU_mem       loss  Instances       Size
+       1/15      10.8G      0.879         17        224: 100%|██████████| 33/33 [01:09<00:00,  2.12s/it]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:01<00:00,  2.36it/s]                   all      0.767          1
+
+
+      Epoch    GPU_mem       loss  Instances       Size
+       2/15      11.3G     0.5217         17        224: 100%|██████████| 33/33 [00:34<00:00,  1.04s/it]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:01<00:00,  2.72it/s]                   all      0.774          1
+
+
+      Epoch    GPU_mem       loss  Instances       Size
+       3/15      11.3G     0.4382         17        224: 100%|██████████| 33/33 [00:32<00:00,  1.02it/s]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:01<00:00,  2.60it/s]                   all      0.731          1
+
+
+      Epoch    GPU_mem       loss  Instances       Size
+       4/15      11.3G     0.4296         17        224: 100%|██████████| 33/33 [00:38<00:00,  1.16s/it]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:01<00:00,  2.61it/s]                   all      0.703          1
+
+
+      Epoch    GPU_mem       loss  Instances       Size
+       5/15      11.4G     0.3837         17        224: 100%|██████████| 33/33 [00:33<00:00,  1.01s/it]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:01<00:00,  2.62it/s]                   all      0.764          1
+
+/usr/lib/python3.10/multiprocessing/popen_fork.py:66: RuntimeWarning: os.fork() was called. os.fork() is incompatible with multithreaded code, and JAX is multithreaded, so this will likely lead to a deadlock.
+  self.pid = os.fork()
+
+      Epoch    GPU_mem       loss  Instances       Size
+       6/15      11.4G     0.3361         17        224: 100%|██████████| 33/33 [00:32<00:00,  1.01it/s]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:01<00:00,  2.60it/s]                   all      0.757          1
+
+
+      Epoch    GPU_mem       loss  Instances       Size
+       7/15      11.4G     0.3197         17        224: 100%|██████████| 33/33 [00:37<00:00,  1.13s/it]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:01<00:00,  2.62it/s]                   all      0.774          1
+
+
+      Epoch    GPU_mem       loss  Instances       Size
+       8/15      11.4G     0.2782         17        224: 100%|██████████| 33/33 [00:32<00:00,  1.00it/s]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:01<00:00,  2.58it/s]                   all      0.711          1
+
+
+      Epoch    GPU_mem       loss  Instances       Size
+       9/15      11.4G     0.2434         17        224: 100%|██████████| 33/33 [00:33<00:00,  1.02s/it]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:01<00:00,  2.55it/s]                   all       0.76          1
+
+
+      Epoch    GPU_mem       loss  Instances       Size
+      10/15      11.4G     0.2226         17        224: 100%|██████████| 33/33 [00:39<00:00,  1.21s/it]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:01<00:00,  2.61it/s]                   all      0.735          1
+
+
+      Epoch    GPU_mem       loss  Instances       Size
+      11/15      11.4G      0.183         17        224: 100%|██████████| 33/33 [00:33<00:00,  1.01s/it]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:01<00:00,  2.59it/s]                   all      0.743          1
+
+
+      Epoch    GPU_mem       loss  Instances       Size
+      12/15      11.4G     0.1643         17        224: 100%|██████████| 33/33 [00:33<00:00,  1.02s/it]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:01<00:00,  2.56it/s]                   all      0.769          1
+
+
+      Epoch    GPU_mem       loss  Instances       Size
+      13/15      11.4G       0.17         17        224: 100%|██████████| 33/33 [00:37<00:00,  1.13s/it]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:01<00:00,  2.58it/s]                   all      0.769          1
+
+
+      Epoch    GPU_mem       loss  Instances       Size
+      14/15      11.4G     0.1231         17        224: 100%|██████████| 33/33 [00:35<00:00,  1.06s/it]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:01<00:00,  2.57it/s]                   all      0.782          1
+
+
+      Epoch    GPU_mem       loss  Instances       Size
+      15/15      11.4G       0.13         17        224: 100%|██████████| 33/33 [00:32<00:00,  1.03it/s]
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:01<00:00,  2.59it/s]                   all      0.777          1
+
+
+15 epochs completed in 0.180 hours.
+Optimizer stripped from runs/classify/train4/weights/last.pt, 112.5MB
+Optimizer stripped from runs/classify/train4/weights/best.pt, 112.5MB
+
+Validating runs/classify/train4/weights/best.pt...
+Ultralytics YOLOv8.2.18 🚀 Python-3.10.12 torch-2.2.1+cu121 CUDA:0 (Tesla T4, 15102MiB)
+YOLOv8x-cls summary (fused): 133 layers, 56127043 parameters, 0 gradients, 153.8 GFLOPs
+train: /content/drive/MyDrive/Pibic Oliveira/dataset/train... found 4113 images in 3 classes ✅ 
+val: /content/drive/MyDrive/Pibic Oliveira/dataset/val... found 592 images in 3 classes ✅ 
+test: /content/drive/MyDrive/Pibic Oliveira/dataset/test... found 1172 images in 3 classes ✅ 
+               classes   top1_acc   top5_acc: 100%|██████████| 3/3 [00:01<00:00,  2.48it/s]
+                   all      0.777          1
+Speed: 0.1ms preprocess, 1.8ms inference, 0.0ms loss, 0.0ms postprocess per image
+Results saved to runs/classify/train4
+Results saved to runs/classify/train4
+ultralytics.utils.metrics.ClassifyMetrics object with attributes:
+
+confusion_matrix: <ultralytics.utils.metrics.ConfusionMatrix object at 0x78b1eda4fe80>
+curves: []
+curves_results: []
+fitness: 0.8885135054588318
+keys: ['metrics/accuracy_top1', 'metrics/accuracy_top5']
+results_dict: {'metrics/accuracy_top1': 0.7770270109176636, 'metrics/accuracy_top5': 1.0, 'fitness': 0.8885135054588318}
+save_dir: PosixPath('runs/classify/train4')
+speed: {'preprocess': 0.06737459350276638, 'inference': 1.7827592186025671, 'loss': 8.296322178196263e-05, 'postprocess': 6.846479467443518e-05}
+task: 'classify'
+top1: 0.7770270109176636
+top5: 1.0
+
+11 min 
+0.180
